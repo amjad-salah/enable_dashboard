@@ -1,12 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Custome Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>EYSP Dashboard</title>
   </head>
   <body>
-    {% block content %} {% endblock content %}
+
+    <!-- Navbar -->
+    {% include 'partials/_navbar.html' %}
+    <div class="container">
+        {% block content %} {% endblock content %}
+    </div>
+    
+
+    <!-- Font Awesome -->
+    <script src="{% static 'js/all.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
 </html>
