@@ -6,6 +6,13 @@
   text-transform: uppercase; 
 }
 
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
 #showcase {
   background: #333 url('/static/img/showcase.jpg') no-repeat center center/cover;
   height: 100vh;

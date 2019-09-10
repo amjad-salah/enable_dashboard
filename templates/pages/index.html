@@ -11,12 +11,12 @@
       nesciunt sit amet!
     </p>
     <div class='links'>
-      <a to='/login' class='btn btn-info btn-sm text-uppercase'><i class="fas fa-sign-in-alt"></i> Login
+      <a href="{% url 'articles' %}" class='btn btn-info btn-sm text-uppercase'><i class="far fa-newspaper"></i> Articles
       </a>
       <a
-        to='/register'
+        href="{% url 'announcements' %}"
         class='btn btn-secondary btn-sm text-uppercase'
-      > <i class="fas fa-user-plus"></i>  Register
+      > <i class="fas fa-bullhorn"></i> announcements
     </a>
     </div>
   </div>
