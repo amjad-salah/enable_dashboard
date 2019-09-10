@@ -1,5 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Home</h1>
+<section id='showcase'>
+  <div class='showcase-content'>
+    <h1>ENABLE Youth Sudan Program</h1>
+    <p class='lead'>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis
+      aut, ab praesentium nemo, itaque dolores alias quam ducimus,
+      blanditiis assumenda dicta dolore numquam similique deserunt ullam ea
+      nesciunt sit amet!
+    </p>
+    <div class='links'>
+      <a to='/login' class='btn btn-info btn-sm text-uppercase'><i class="fas fa-sign-in-alt"></i> Login
+      </a>
+      <a
+        to='/register'
+        class='btn btn-secondary btn-sm text-uppercase'
+      > <i class="fas fa-user-plus"></i>  Register
+    </a>
+    </div>
+  </div>
+</section>
 {% endblock content %}
