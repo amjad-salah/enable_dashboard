@@ -1,7 +1,16 @@
 from django.shortcuts import render
+from .models import Announcement
 
 def announcements(request):
-  return render(request, 'announcements/announcements.html')
+  announcements = Announcement.objects.all().order_by('-created_date')
+  context = {
+    'announcements': announcements
+  }
+  return render(request, 'announcements/announcements.html', context)
 
-def announcement(request):
-  return render(request, 'announcements/announcement.html')
+def announcement(request, id):
+  announcement = Announcement.objects.get(id=id)
+  context = {
+    'announcement': announcement
+  }
+  return render(request, 'announcements/announcement.html', context)

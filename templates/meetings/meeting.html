@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-  <h1>Meeting</h1>
+<div class="container mt-5">
+  <div class="card border-info" style="width: 100%;">
+    <div class="card-body">
+      <h3 class="card-title text-center"><a href="{% url 'meeting' meeting.id %}" class="text-info">{{ meeting.subject }}</a></h3>
+      <h6 class="card-subtitle mb-2 text-muted">
+        Owner: <i class="fas fa-user-tie"></i> {{meeting.owner}}
+      </h6>
+      <h6 class="card-subtitle mb-2 text-muted">
+        Date: <i class="fas fa-clock"></i>{{meeting.date | date:"d b, Y"}}
+      </h6>
+      <p class="card-text">{{meeting.agenda | safe}}</p>
+    </div>
+  </div>
 </div>
 
 {% endblock content %}

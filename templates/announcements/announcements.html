@@ -1,7 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-  <h1>Announcements</h1>
+<div class="container mt-3">
+  <h1 class="text-center text-uppercase">Meetings</h1>
+  {% if announcements %}
+    <div class="row">
+    {% for announcement in announcements %}
+    <div class="col-6">
+      <div class="card mb-3 border-info">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{% url 'announcement' announcement.id %}" class="text-info">{{ announcement.title }}</a></h3>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Added By: <i class="fas fa-user-tie"></i> {{announcement.user}}
+          </h6>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <i class="fas fa-clock"></i> {{announcement.created_date | date:"d b, Y"}}
+          </h6>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+  {%else%}
+    <p>No Announcements to show</p>
+  {% endif %}
 </div>
 {% endblock content %}
