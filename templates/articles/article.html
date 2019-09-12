@@ -16,4 +16,25 @@
   </div>
 </div>
 
+<div class="container mb-5">
+  <h5 class="mb-2">Comments</h5>
+  {% if comments %}
+  {% for comm in comments %}
+    <div class="card border-danger mb-3 ml-5" style="width: 100%;">
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">
+          <i class="fas fa-user-tie"></i> {{comm.user}}
+        </h6>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <i class="fas fa-clock"></i> {{comm.created_date | timesince}}
+        </h6>
+        <p class="card-text">{{ comm.body }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p class="lead ml-5">No comments yet...</p>
+  {% endif %}
+</div>
+  
 {% endblock content %}

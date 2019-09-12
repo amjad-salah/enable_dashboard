@@ -48,13 +48,6 @@ a:active {
 }
 .card {
   box-shadow: 4px 5px 15px 1px #888888;
-  transition: transform 1s;
-}
-
-.card:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 40px 0 rgba(0,0,0,0.4);
-  /* z-index: 2; */
 }
 
 #main-footer {
