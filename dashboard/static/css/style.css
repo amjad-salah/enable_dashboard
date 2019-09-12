@@ -35,13 +35,28 @@ a:active {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+#main {
+  background: #333 url('/static/img/showcase2.jpg') no-repeat center center/cover;
+  height: 100vh;
+  margin-top: -1rem;
+}
+
 .links {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
 }
+.card {
+  box-shadow: 4px 5px 15px 1px #888888;
+  transition: transform 1s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 40px 0 rgba(0,0,0,0.4);
+  /* z-index: 2; */
+}
 
 #main-footer {
   background-color: #006064;
-  margin-top: 100px;
 }

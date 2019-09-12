@@ -21,72 +21,75 @@
     </div>
   </div>
 </section>
-<div class="container mt-5 border bg-secondary rounded">
-  <h3 class="text-center mb-3 mt-3 text-white">Latest Articles</h3>
-  <div class="row">
-    {% if articles %}
-      {% for article in articles %}
-        <div class="col-4">
-          <div class="card border-info mb-2">
-            <div class="card-body">
-              <h3 class="card-title"><a href="{% url 'article' article.id %}" class="text-info">{{ article.title }}</a></h3>
-              <h6 class="card-subtitle mb-2 text-muted">
-                <i class="fas fa-user-tie"></i> {{article.writer}}
-              </h6>
-              <h6 class="card-subtitle mb-2 text-muted">
-                <i class="fas fa-clock"></i> {{article.created_date | timesince}}
-              </h6>
-            </div>
-          </div>
+<section id="main">
+    <div class="container">
+        <h3 class="text-center mb-3 mt-3 pt-3">Latest Articles</h3>
+        <div class="row">
+          {% if articles %}
+            {% for article in articles %}
+              <div class="col-4 d-flex align-items-stretch">
+                <div class="card text-white border-light bg-info mb-2">
+                  <div class="card-body">
+                    <h3 class="card-title"><a href="{% url 'article' article.id %}" class="text-white">{{ article.title }}</a></h3>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                      <i class="fas fa-user-tie"></i> {{article.writer}}
+                    </h6>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                      <i class="fas fa-clock"></i> {{article.created_date | timesince}}
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <p>No Articles to show..</p>
+          {% endif %}
         </div>
-      {% endfor %}
-    {% else %}
-      <p>No Articles to show..</p>
-    {% endif %}
-  </div>
-  <h3 class="text-center mb-3 mt-5 text-white">Latest Meetings</h3>
-  <div class="row">
-    {% if meetings %}
-      {% for meeting in meetings %}
-        <div class="col-4">
-          <div class="card border-info mb-2">
-            <div class="card-body">
-              <h3 class="card-title"><a href="{% url 'meeting' meeting.id %}" class="text-info">{{ meeting.subject }}</a></h3>
-              <h6 class="card-subtitle mb-2 text-muted">
-                <i class="fas fa-user-tie"></i> {{meeting.owner}}
-              </h6>
-              <h6 class="card-subtitle mb-2 text-muted">
-                <i class="fas fa-clock"></i> {{meeting.date | timesince}}
-              </h6>
-            </div>
-          </div>
+        <h3 class="text-center mb-3 mt-5">Latest Meetings</h3>
+        <div class="row">
+          {% if meetings %}
+            {% for meeting in meetings %}
+              <div class="col-4 d-flex align-items-stretch">
+                <div class="card text-white border-light bg-info mb-2">
+                  <div class="card-body">
+                    <h3 class="card-title"><a href="{% url 'meeting' meeting.id %}" class="text-white">{{ meeting.subject }}</a></h3>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                      <i class="fas fa-user-tie"></i> {{meeting.owner}}
+                    </h6>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                      <i class="fas fa-clock"></i> {{meeting.date | timesince}}
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <p>No Meetings to show..</p>
+          {% endif %}
         </div>
-      {% endfor %}
-    {% else %}
-      <p>No Meetings to show..</p>
-    {% endif %}
-  </div>
-  <h3 class="text-center mb-3 mt-5 text-white">Latest Announcements</h3>
-  <div class="row mb-3">
-    {% if announcements %}
-      {% for announcement in announcements %}
-        <div class="col-4">
-          <div class="card border-info mb-2">
-            <div class="card-body">
-              <h3 class="card-title"><a href="{% url 'announcement' announcement.id %}" class="text-info">{{ announcement.title }}</a></h3>
-              <h6 class="card-subtitle mb-2 text-muted">
-                <i class="fas fa-user-tie"></i> {{announcement.user}}
-              </h6>
-              <h6 class="card-subtitle mb-2 text-muted">
-                <i class="fas fa-clock"></i> {{announcement.created_date | timesince}}
-              </h6>
-            </div>
-          </div>
+        <h3 class="text-center mb-3 mt-5">Latest Announcements</h3>
+        <div class="row mb-3">
+          {% if announcements %}
+            {% for announcement in announcements %}
+              <div class="col-4 d-flex align-items-stretch">
+                <div class="card hoverable text-white border-light bg-info mb-2">
+                  <div class="card-body">
+                    <h3 class="card-title"><a href="{% url 'announcement' announcement.id %}" class="text-white">{{ announcement.title }}</a></h3>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                      <i class="fas fa-user-tie"></i> {{announcement.user}}
+                    </h6>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                      <i class="fas fa-clock"></i> {{announcement.created_date | timesince}}
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <p>No Announcements to show..</p>
+          {% endif %}
         </div>
-      {% endfor %}
-    {% else %}
-      <p>No Announcements to show..</p>
-    {% endif %}
-  </div>
-</div>
+      </div>
+</section>
+
 {% endblock content %}
