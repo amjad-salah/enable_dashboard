@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import Article, Comment
 
@@ -14,9 +14,17 @@ def index(request):
 
 def article(request, id):
   article = Article.objects.get(id=id)
-  comments = Comment.objects.filter(article=id)
+  comments = Comment.objects.filter(articl=id)
   context = {
     'article': article,
     'comments': comments
   }
-  return render(request, 'articles/article.html', context)
+  if request.method == 'POST':
+    user = request.user
+    articl = Article.objects.get(id=id)
+    body = request.POST['body']
+    comment = Comment(user=user, articl=articl, body=body)
+    comment.save()
+    return render(request, 'articles/article.html', context)
+  else:
+    return render(request, 'articles/article.html', context)

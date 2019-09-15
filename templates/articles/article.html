@@ -6,7 +6,7 @@
     <div class="card-body">
       <h3 class="card-title text-center"><a href="{% url 'article' article.id %}" class="text-info">{{ article.title }}</a></h3>
       <h6 class="card-subtitle mb-2 text-muted">
-        <i class="fas fa-user-tie"></i> {{article.writer}}
+        <i class="fas fa-user-tie"></i> {{article.writer.first_name}} {{article.writer.last_name}}
       </h6>
       <h6 class="card-subtitle mb-2 text-muted">
         <i class="fas fa-clock"></i> {{article.created_date | timesince}}
@@ -17,13 +17,13 @@
 </div>
 
 <div class="container mb-5">
-  <h5 class="mb-2">Comments</h5>
+  <h5 class="mb-2">Comments: ({{ comments|length }})</h5>
   {% if comments %}
   {% for comm in comments %}
-    <div class="card border-danger mb-3 ml-5" style="width: 100%;">
+    <div class="card border-danger mb-3 ml-3" style="width: 100%;">
       <div class="card-body">
         <h6 class="card-subtitle mb-2 text-muted">
-          <i class="fas fa-user-tie"></i> {{comm.user}}
+          <i class="fas fa-user-tie"></i> {{comm.user.first_name}} {{comm.user.last_name}}
         </h6>
         <h6 class="card-subtitle mb-2 text-muted">
           <i class="fas fa-clock"></i> {{comm.created_date | timesince}}
@@ -34,6 +34,24 @@
     {% endfor %}
   {% else %}
     <p class="lead ml-5">No comments yet...</p>
+  {% endif %}
+</div>
+
+<div class="container">
+  {% if user.is_authenticated %}
+    <div class="mt-5 mb-5 ml-3 card">
+      <div class="card-body">
+        <form action="{% url 'article' article.id %}" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <textarea rows="10" name="body" class="form-control"></textarea>
+          </div>
+          <input type="submit" value="Add Comment" class="btn btn-info">
+        </form>
+    </div>
+    </div>
+  {% else %}
+    <p class="text-info text-center mb-5">Please login to add a comment</p>
   {% endif %}
 </div>
   

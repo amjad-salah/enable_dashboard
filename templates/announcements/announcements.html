@@ -11,7 +11,7 @@
         <div class="card-body">
           <h3 class="card-title"><a href="{% url 'announcement' announcement.id %}" class="text-info">{{ announcement.title }}</a></h3>
           <h6 class="card-subtitle mb-2 text-muted">
-            Added By: <i class="fas fa-user-tie"></i> {{announcement.user}}
+            Added By: <i class="fas fa-user-tie"></i> {{announcement.user.first_name}} {{announcement.user.last_name}}
           </h6>
           <h6 class="card-subtitle mb-2 text-muted">
             <i class="fas fa-clock"></i> {{announcement.created_date | date:"d b, Y"}}

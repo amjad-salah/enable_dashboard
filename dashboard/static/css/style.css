@@ -37,8 +37,8 @@ a:active {
 
 #main {
   background: #333 url('/static/img/showcase2.jpg') no-repeat center center/cover;
-  height: 100vh;
-  margin-top: -0.5rem;
+  height: 50vh;
+  margin-top: -1rem;
 }
 
 .links {

@@ -12,7 +12,7 @@ class ArticleAdmin(admin.ModelAdmin):
 admin.site.register(Article, ArticleAdmin)
 
 class CommentAdmin(admin.ModelAdmin):
-  list_display = ('id', 'user', 'article', 'created_date')
+  list_display = ('id', 'user', 'articl', 'created_date')
   list_filter = ('user__first_name',)
   list_per_page = 25
 
