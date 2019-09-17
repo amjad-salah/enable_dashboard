@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'meetings.apps.MeetingsConfig',
     'announcements.apps.AnnouncementsConfig',
     'accounts.apps.AccountsConfig',
+    'guides.apps.GuidesConfig',
+    'missions.apps.MissionsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
