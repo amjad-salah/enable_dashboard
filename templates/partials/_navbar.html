@@ -18,6 +18,15 @@
           <a class="nav-link" href="{% url 'meetings' %}">meetings</a>
         </li>
         <li
+          {% if 'announcements' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}
+        >
+          <a class="nav-link" href="{% url 'announcements' %}">announcements</a>
+        </li>
+        <li
           {% if 'articles' in request.path %}
           class="nav-item active mr-3"
           {% else %}
@@ -27,13 +36,13 @@
           <a class="nav-link" href="{% url 'articles' %}">articles</a>
         </li>
         <li
-          {% if 'announcements' in request.path %}
+          {% if 'guides' in request.path %}
           class="nav-item active mr-3"
           {% else %}
           class="nav-item mr-3"
           {% endif %}
         >
-          <a class="nav-link" href="{% url 'announcements' %}">announcements</a>
+          <a class="nav-link" href="{% url 'guides' %}">guides</a>
         </li>
       </ul>
 

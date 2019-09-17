@@ -1,7 +1,12 @@
 from django.shortcuts import render
+from .models import Guide
 
 def index(request):
-  return render(request, 'guides/guides.html')
+  guides = Guide.objects.all()
+  context = {
+    'guides': guides
+  }
+  return render(request, 'guides/guides.html', context)
 
 def guide(request, id):
   return render(request, 'guides/guide.html')
