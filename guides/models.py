@@ -7,7 +7,7 @@ class Guide(models.Model):
   title = models.CharField(max_length=250)
   description = models.TextField(blank=True, null=True)
   added_by = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-  guide_file = models.FileField(upload_to='guides/', blank=True, null=True)
+  guide_file = models.FileField(upload_to='guides/')
   template = models.FileField(upload_to='templates/', blank=True, null=True)
 
   def __str__(self):
