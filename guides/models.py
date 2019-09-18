@@ -5,7 +5,7 @@ from django.dispatch import receiver
 
 class Guide(models.Model):
   title = models.CharField(max_length=250)
-  description: models.TextField()
+  description = models.TextField(blank=True, null=True)
   added_by = models.ForeignKey(User, on_delete=models.DO_NOTHING)
   template = models.FileField(upload_to='guides/')
 

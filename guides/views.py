@@ -9,4 +9,8 @@ def index(request):
   return render(request, 'guides/guides.html', context)
 
 def guide(request, id):
-  return render(request, 'guides/guide.html')
+  guide = Guide.objects.get(id=id)
+  context = {
+    'guide': guide
+  }
+  return render(request, 'guides/guide.html', context)

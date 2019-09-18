@@ -2,6 +2,15 @@
 
 {% block content %}
 <div class="container mt-3 mb-5">
-  <h1 class="text-center text-uppercase">Guide</h1>
+  <div class="card border-info" style="width: 100%;">
+    <div class="card-body">
+      <h3 class="card-title text-center"><a href="{% url 'guide' guide.id %}" class="text-info">{{ guide.title }}</a></h3>
+      <h6 class="card-subtitle mb-2 text-muted">
+        Added By: <i class="fas fa-user-tie"></i> {{guide.added_by.first_name}} {{guide.added_by.last_name}}
+      </h6>
+      <p class="card-text">{{guide.description}}</p>
+      <a href="{{ guide.template.url }}" target="_blank" class="btn btn-info">Download</a>
+    </div>
+  </div>
 </div>
 {% endblock content %}
