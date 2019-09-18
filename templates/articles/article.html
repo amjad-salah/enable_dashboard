@@ -12,6 +12,12 @@
         <i class="fas fa-clock"></i> {{article.created_date | timesince}}
       </h6>
       <p class="card-text">{{article.body | safe}}</p>
+      <h6 class="mt-3">Attachment:</h6>
+      {% if article.attachment %}
+      <a href="{{ article.attachment.url }}" target="_blank" class="btn btn-info">View Attachment</a>
+      {% else %}
+      <span class="text-muted">No Attachment</span>
+      {% endif %}
     </div>
   </div>
 </div>
