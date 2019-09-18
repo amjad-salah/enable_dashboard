@@ -18,6 +18,15 @@
           <a class="nav-link" href="{% url 'meetings' %}">meetings</a>
         </li>
         <li
+          {% if 'missions' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}
+        >
+          <a class="nav-link" href="{% url 'missions' %}">missions</a>
+        </li>
+        <li
           {% if 'announcements' in request.path %}
           class="nav-item active mr-3"
           {% else %}
