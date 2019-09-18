@@ -30,9 +30,9 @@
             <div class="col-4 d-flex align-items-stretch">
               <div class="card mb-2">
                 <div class="card-body">
-                  <h3 class="card-title"><a href="{% url 'article' article.id %}" class="text-info">{{ article.title }}</a></h3>
+                  <h3 class="card-title"><a href="{% url 'article' article.id %}" class="text-info">{{ article.title|slice:"0:60" }}...</a></h3>
                   <h6 class="card-subtitle mb-2 text-muted">
-                    <i class="fas fa-user-tie"></i> {{article.writer}}
+                    <i class="fas fa-user-tie"></i> {{article.writer.first_name}} {{article.writer.last_name}}
                   </h6>
                   <h6 class="card-subtitle mb-2 text-muted">
                     <i class="fas fa-clock"></i> {{article.created_date | timesince}}
