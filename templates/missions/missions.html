@@ -3,6 +3,28 @@
 {% block content %}
 <div class="container mt-5 mb-5">
   <h1 class="text-uppercase text-center">Missions</h1>
+  {% if missions %}
+    <div class="row">
+    {% for mission in missions %}
+    <div class="col-6">
+      <div class="card mb-3 border-info">
+        <div class="card-body">
+          <h3 class="card-title"><a href="{% url 'mission' mission.id %}" class="text-info">{{ mission.subject }}</a></h3>
+          <h6 class="card-subtitle mb-2 text-muted">
+            From: <i class="fas fa-clock"></i> {{mission.from_date | date:"d b, Y"}}
+          </h6>
+          <h6 class="card-subtitle mb-2 text-muted">
+            To: <i class="fas fa-clock"></i> {{mission.to_date | date:"d b, Y"}}
+          </h6>
+          <p class="card-text"><i class="fas fa-users"></i> {{mission.participants}}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+  {%else%}
+    <p>No Missions to show</p>
+  {% endif %}
 </div>
 
 {% endblock content %}
