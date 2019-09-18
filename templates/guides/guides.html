@@ -5,13 +5,14 @@
   <h1 class="text-center text-uppercase">Guides</h1>
   {% if guides %}
     <div class="row">
-      <div class="col-md-9 mx-auto">
+      <div class="col-md-12 mx-auto">
         <table class="table table-hover">
           <thead class="thead-light">
             <tr>
               <th>Title</th>
               <th>Added By</th>
-              <th></th>
+              <th>Guide</th>
+              <th>Template</th>
               <th></th>
             </tr>
           </thead>
@@ -21,10 +22,15 @@
               <td>{{ guide.title }}</td>
               <td>{{ guide.added_by.first_name }} {{ guide.added_by.last_name }}</td>
               <td>
-                <a href="{{ guide.template.url }}" class="btn btn-info" target="_blank">Download</a>
+                <a href="{{ guide.guide_file.url }}" class="btn btn-info" target="_blank">Download Guide</a>
               </td>
               <td>
-                <a href="{% url 'guide' guide.id %}" class="btn btn-primary">Details</a>
+                {% if guide.template %}
+                <a href="{{ guide.template.url }}" class="btn btn-primary" target="_blank">Download Template</a>
+                {% endif %}
+              </td>
+              <td>
+                <a href="{% url 'guide' guide.id %}" class="btn btn-warning">Details</a>
               </td>
             </tr>
             {% endfor %}
